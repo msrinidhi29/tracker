@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<!-- saved from url=(0054)file:///Users/srinidhireddy/Downloads/requirement.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <title>Requirement Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        table {
+            border-collapse: collapse;
+            width: 98%;
+            margin: 20px auto;
+        }
+        th, td {
+            border: 1px solid #444;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #eee;
+        }
+        .h1-header {
+            background-color: #cce5ff;
+            font-weight: bold;
+            text-align: center;
+        }
+        #formContainer {
+            width: 98%;
+            margin: 20px auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        #formContainer input, #formContainer select {
+            padding: 8px;
+            width: 180px;
+        }
+        button {
+            padding: 8px 16px;
+            height: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2 style="text-align:center;">Requirement Tracker</h2>
+    
+
+    <table id="requirementTable">
+        <thead>
+            <tr>
+                <th>H1/H2</th>
+                <th>S.No</th>
+                <th>Description</th>
+                <th>Req Owner</th>
+                <th>Applicable Module</th>
+                <th>Status</th>
+                <th>Remarks</th>
+                <th>Application Company</th>
+                <th>Req Month</th>
+                <th>App Month</th>
+                <th>Planned/Unplanned</th>
+                <th>Financial Year</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody">
+            <tr class="h1-header">
+                <td colspan="12">H1 </td>
+                
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        function addRow() {
+            const h1h2 = document.getElementById("h1h2").value;
+            const sno = document.getElementById("sno").value;
+            const description = document.getElementById("description").value;
+            const reqOwner = document.getElementById("reqOwner").value;
+            const module = document.getElementById("module").value;
+            const status = document.getElementById("status").value;
+            const remarks = document.getElementById("remarks").value;
+            const company = document.getElementById("company").value;
+            const reqMonth = document.getElementById("reqMonth").value;
+            const appMonth = document.getElementById("appMonth").value;
+            const planType = document.getElementById("planType").value;
+            const financialYear = document.getElementById("financialYear").value;
+
+            if (!sno || !description) {
+                alert("Please fill in at least S.No and Description.");
+                return;
+            }
+
+            const tbody = document.getElementById("tableBody");
+            const newRow = tbody.insertRow();
+
+            newRow.insertCell(0).innerText = h1h2;
+            newRow.insertCell(1).innerText = sno;
+            newRow.insertCell(2).innerText = description;
+            newRow.insertCell(3).innerText = reqOwner;
+            newRow.insertCell(4).innerText = module;
+            newRow.insertCell(5).innerText = status;
+            newRow.insertCell(6).innerText = remarks;
+            newRow.insertCell(7).innerText = company;
+            newRow.insertCell(8).innerText = reqMonth;
+            newRow.insertCell(9).innerText = appMonth;
+            newRow.insertCell(10).innerText = planType;
+            newRow.insertCell(11).innerText = financialYear;
+
+            // Clear inputs
+            document.querySelectorAll('#formContainer input').forEach(input => input.value = '');
+            document.getElementById("planType").value = "Planned";
+            document.getElementById("h1h2").value = "H1";
+        }
+    </script>
+
+
+
+</body></html>
